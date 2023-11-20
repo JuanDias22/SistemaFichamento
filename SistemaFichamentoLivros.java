@@ -44,7 +44,7 @@ public class SistemaFichamentoLivros {
     }
 
     public void editarLivro(Livro livroExistente, Livro livroAtualizado) {
-        // Atualizar as informações do livro existente com as do livro atualizado
+        // Atualiza as informações do livro existente com as do livro atualizado
         livroExistente.setTitulo(livroAtualizado.getTitulo());
         livroExistente.setAutor(livroAtualizado.getAutor());
         livroExistente.setAnoPublicacao(livroAtualizado.getAnoPublicacao());
