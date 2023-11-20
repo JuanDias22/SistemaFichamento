@@ -1,5 +1,3 @@
-import javafx.scene.control.Alert;
-
 public class Fichamento extends Livro {
 
     private String assunto;
