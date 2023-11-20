@@ -68,7 +68,8 @@ public class Livro {
                 "Autor: " + autor + "\n" +
                 "Ano de Publicação: " + anoPublicacao + "\n" +
                 "Gênero: " + genero + "\n" +
-                "Comentário: " + getComentario());  // Adicione a exibição do comentário aqui
+                "Assunto: " + assunto + "\n" +
+                "Comentário: " + getComentario()); 
         alert.showAndWait();
     }
 
