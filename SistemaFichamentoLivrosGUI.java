@@ -33,6 +33,7 @@ public class SistemaFichamentoLivrosGUI extends Application {
         assuntoField = new TextField();
         comentarioField = new TextField();
 
+        //Botões 
         Button cadastrarButton = new Button("Cadastrar Livro");
         cadastrarButton.setOnAction(e -> cadastrarNovoLivro());
 
@@ -131,12 +132,12 @@ public class SistemaFichamentoLivrosGUI extends Application {
         dialog.showAndWait().ifPresent(titulo -> {
             Livro livroExistente = sistema.buscarLivroPorTitulo(titulo);
             if (livroExistente != null) {
-                // Exibir um novo diálogo para editar as informações
+                // Exibe um novo diálogo para editar as informações
                 Dialog<Livro> editDialog = criarDialogoEdicaoLivro(livroExistente);
 
                 Optional<Livro> resultado = editDialog.showAndWait();
                 resultado.ifPresent(livroAtualizado -> {
-                    // Atualizar as informações do livro no sistema
+                    // Atualiza as informações do livro no sistema
                     sistema.editarLivro(livroExistente, livroAtualizado);
                     System.out.println("Livro editado com sucesso!");
                 });
@@ -151,7 +152,7 @@ public class SistemaFichamentoLivrosGUI extends Application {
         dialog.setTitle("Editar Livro");
         dialog.setHeaderText("Atualize as informações do livro:");
 
-        // Adicionar campos de texto para as informações do livro
+        // Textfiel adiciona texto aos campos do livro
         TextField novoTituloField = new TextField(livro.getTitulo());
         TextField novoAutorField = new TextField(livro.getAutor());
         TextField novoAnoField = new TextField(String.valueOf(livro.getAnoPublicacao()));
@@ -159,7 +160,7 @@ public class SistemaFichamentoLivrosGUI extends Application {
         TextField novoAssuntoField = new TextField(livro.getAssunto());
         TextField novoComentarioField = new TextField(livro.getComentario());
 
-        // Adicionar os campos ao layout do diálogo
+        // Layout do code
         GridPane grid = new GridPane();
         grid.setHgap(10);
         grid.setVgap(10);
@@ -178,11 +179,11 @@ public class SistemaFichamentoLivrosGUI extends Application {
 
         dialog.getDialogPane().setContent(grid);
 
-        // Adicionar botões OK e Cancelar ao diálogo
+        // Adiciona botões OK e Cancelar ao diálogo
         ButtonType buttonTypeOk = new ButtonType("OK", ButtonBar.ButtonData.OK_DONE);
         dialog.getDialogPane().getButtonTypes().addAll(buttonTypeOk, ButtonType.CANCEL);
 
-        // Converter o resultado do diálogo para um objeto Livro
+        // Converte o resultado do diálogo para um objeto Livro
         dialog.setResultConverter(dialogButton -> {
             if (dialogButton == buttonTypeOk) {
                 Livro livroAtualizado = new Livro(novoComentarioField.getText());
